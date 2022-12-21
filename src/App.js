@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import './App.scss';
-import {Navbar} from './components/Navbar/Navbar'
+import { ItemListContainer } from './components/Navbar/ItemListContainer/ItemListContainer';
+import {ResponsiveAppBar} from './components/Navbar/Navbar'
 
 function App() {
   return (
-    <div>
-     <Navbar/>
+    <div className='AppComponent'>
+     <ResponsiveAppBar/>
+     <ItemListContainer greeting="Bienvenidos"/>
     </div>
   );
 }
