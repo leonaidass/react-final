@@ -1,16 +1,17 @@
-import stock from "../../data/MOCK_DATA.json"
+import { useEffect, useState } from "react"
+import { getData } from "../../helpers/getDatos"
 export const ItemListContainer = ({greeting})=>{
-    const getData = ()=>{
-        return new Promise((resolve, reject)=>{
-           setTimeout(()=>{ resolve(stock)},3000)
+    
+    const [dataStock,setDataStock]=useState([])
+    console.log("primero",dataStock)
+    useEffect(()=>{getData().then((res)=>{setDataStock(res)})},[])
+    
+    console.log("segundo",dataStock)
 
-        })
-    }
-    getData().then((res)=>{console.log("datossss",res)})
     return(
         <div>{
             
-            stock.map((elem)=>(<div key={elem.id} ><h2>{elem.nombre}</h2></div>))
+            dataStock.map((elem)=>(<div key={elem.id} ><h2>{elem.nombre}</h2></div>))
         }</div>
     )
 }
