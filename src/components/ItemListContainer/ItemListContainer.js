@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { getData } from "../../helpers/getDatos"
+import { ItemList } from "../ItemList/ItemList"
+
 export const ItemListContainer = ({greeting})=>{
     
     const [dataStock,setDataStock]=useState([])
@@ -9,9 +11,8 @@ export const ItemListContainer = ({greeting})=>{
     console.log("segundo",dataStock)
 
     return(
-        <div>{
-            
-            dataStock.map((elem)=>(<div key={elem.id} ><h2>{elem.nombre}</h2></div>))
-        }</div>
+
+        <ItemList productos={dataStock}/>
+       
     )
 }
