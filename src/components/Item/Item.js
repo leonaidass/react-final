@@ -10,8 +10,8 @@ import { Grid } from "@mui/material";
 export const Item = ({ nombre, image, precio, descripcion, stock }) => {
   return (
     <Grid item xs={12} sm={4} lg={3}>
-      <Card>
-        <CardMedia sx={{ height: 150 }} image={image} title="green iguana" />
+      <Card sx={{ height: 430 }} >
+        <CardMedia sx={{ height: 250 }} image={image} className="contentImgCard"/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {nombre}
@@ -19,24 +19,26 @@ export const Item = ({ nombre, image, precio, descripcion, stock }) => {
           <Typography variant="body2" color="text.secondary">
             {descripcion}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <span>Stock: <strong>{stock}</strong> </span>
+          <Typography  variant="body2" color="text.secondary">
+            <span>
+              Stock: <strong>{stock}</strong>{" "}
+            </span>
           </Typography>
-          
-          <Typography variant="body2" color="text.secondary">
-            <p>
+
+          <Typography component={'p'}  variant="body2" color="text.secondary">
+            
               precio:
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
               }).format(precio)}
-            </p>
+           
           </Typography>
         </CardContent>
-        <CardActions>
+        {/* <CardActions>
           <Button size="small">Share</Button>
           <Button size="small">Learn More</Button>
-        </CardActions>
+        </CardActions> */}
       </Card>
     </Grid>
   );

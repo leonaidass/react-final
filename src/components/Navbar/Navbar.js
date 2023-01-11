@@ -12,8 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "../../assets/logo.png";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
-const pages = ["Productos", "Promociones", "Contacto"];
+
+const pages = [{name:"INICIO",nav:"/"},{name:"QUESOS",nav:"/productos/quesos"},{name:"JAMONES",nav:"/productos/jamones"}, {name:"NOSOTROS",nav:"nosotros"},{name:"CONTACTO",nav:"+++++"}];
 
 export const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,6 +27,7 @@ export const ResponsiveAppBar = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    
   };
 
   return (
@@ -61,14 +64,14 @@ export const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box
-            sx={{ flexGrow: 1, display: { xs: "flex" } }}
+            sx={{ flexGrow: {xs:1,md:0}, display: { xs: "flex" } }}
             justifyContent="center"
           >
             <img src={logo} className="logoInicio" alt="logo" />
@@ -78,15 +81,16 @@ export const ResponsiveAppBar = () => {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="end"
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <nav className="header_nav">
+            {pages.map(({nav,name}) => (
+
+              <Link key={name} className="item_nav" to={nav}>{name}</Link>
+           
+            
+            
+        
+          ))}
+            </nav>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
