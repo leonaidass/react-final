@@ -5,6 +5,7 @@ import { ResponsiveAppBar } from "./components/Navbar/Navbar";
 import { Container } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Nosotros } from "./components/Nosotros/Nosotros";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
            <Route
            path="/productos/:categoryId"
            element={<ItemListContainer greeting="Bienvenidos" />} />
+           <Route
+           path="/detalle/:itemId"
+           element={<ItemDetailContainer/>} />
         </Routes>
       </Container>
     </BrowserRouter>

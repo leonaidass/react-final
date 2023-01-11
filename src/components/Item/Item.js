@@ -6,11 +6,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export const Item = ({ nombre, image, precio, descripcion, stock }) => {
+export const Item = ({ nombre, image, precio, descripcion, stock,id }) => {
+  const navegar =useNavigate()
+  const verMas = ()=>{
+    navegar(`/detalle/${id}`)
+  }
   return (
     <Grid item xs={12} sm={4} lg={3}>
-      <Card sx={{ height: 430 }} >
+      <Card sx={{ height: 460 }} >
         <CardMedia sx={{ height: 250 }} image={image} className="contentImgCard"/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -34,11 +40,12 @@ export const Item = ({ nombre, image, precio, descripcion, stock }) => {
               }).format(precio)}
            
           </Typography>
+          {/* <Link to={`/detalle/${id}`}> ver mas</Link> */}
         </CardContent>
-        {/* <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions> */}
+        <CardActions>
+        
+          <Button size="small" onClick={verMas}>Ver Mas</Button>  
+        </CardActions>
       </Card>
     </Grid>
   );
