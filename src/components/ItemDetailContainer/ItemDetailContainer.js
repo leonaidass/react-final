@@ -1,5 +1,5 @@
 import { Button, CardMedia } from "@mui/material"
-import { width } from "@mui/system"
+import { Select } from "../../components/select_prueba/Select"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import {getDataId} from "../../helpers/getDatos"
@@ -8,6 +8,7 @@ export const ItemDetailContainer = ()=>{
     const {itemId} = useParams()
     const [producto,setProducto]=useState(null)
     const [cantidad,setCantidad] =useState(1)
+    const talles= [{value:"s",talle:"S"},{value:"m",talle:"M"},{value:"l",talle:"L"},]
     console.log(itemId)
     useEffect(()=>{
         getDataId(Number(itemId))
@@ -37,9 +38,10 @@ export const ItemDetailContainer = ()=>{
 
             }
             
-            {producto && <ItemCount max={producto.stock} setCantidad={setCantidad} cantidad={cantidad}></ItemCount>}
+            {producto && <ItemCount max={producto.stock} setCantidad={setCantidad} cantidad={cantidad} onAdd={handleAgregar}></ItemCount>}
             <Button onClick={volver}> volver</Button>
-            <button onClick={handleAgregar}>canidad</button>
+            <button onClick={handleAgregar}>cantidad</button> 
+            <Select talles={talles}/>
         </div>
     )
 }

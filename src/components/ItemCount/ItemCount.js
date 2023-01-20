@@ -1,6 +1,6 @@
 
 
-export const ItemCount = ({max,setCantidad,cantidad})=>{
+export const ItemCount = ({max,setCantidad,cantidad, onAdd})=>{
    
    const handleSumar = ()=>{
     cantidad < max && setCantidad(cantidad+1)
@@ -14,7 +14,7 @@ export const ItemCount = ({max,setCantidad,cantidad})=>{
             <button onClick={handleRestar}>-</button>
             <span>{cantidad}</span>
             <button onClick={handleSumar}>+</button>
-            <button onClick={handleSumar}>agregar carrito</button>
+            <button onClick={onAdd}>agregar carrito</button>
 
         </div>
     )
