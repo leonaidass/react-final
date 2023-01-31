@@ -3,7 +3,7 @@
 export const Select = ({talles})=>{
     console.log(talles);
     const chang=(e)=>{
-     console.log(e)
+     console.log(e.target.value)
     }
     return(
         <div>

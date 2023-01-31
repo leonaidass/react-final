@@ -15,7 +15,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 
 
-const pages = [{name:"INICIO",nav:"/"},{name:"QUESOS",nav:"/productos/quesos"},{name:"JAMONES",nav:"/productos/jamones"}, {name:"NOSOTROS",nav:"nosotros"},{name:"CONTACTO",nav:"+++++"}];
+const pages = [{name:"INICIO",nav:"/"},{name:"QUESOS",nav:"/productos/quesos"},{name:"JAMONES",nav:"/productos/jamones"}, {name:"NOSOTROS",nav:"nosotros"},{name:"CONTACTO",nav:"/contacto"}];
 
 export const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
