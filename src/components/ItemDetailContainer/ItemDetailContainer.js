@@ -6,8 +6,7 @@ import { getDataId } from "../../helpers/getDatos";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartContext";
 export const ItemDetailContainer = () => {
-    const {nombreT} = useContext(CartContext);
-    console.log("contexto",nombreT);
+    
   const { itemId } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
