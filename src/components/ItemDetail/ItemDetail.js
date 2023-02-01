@@ -1,6 +1,6 @@
-import { Button, CardMedia } from "@mui/material"
+import {  CardMedia } from "@mui/material"
 import { ItemCount } from "../ItemCount/ItemCount"
-import { useContext,useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const ItemDetail = ({categoria,id,descripcion,image,nombre,precio,stock})=>{
     const [cantidad, setCantidad] = useState(1);
-    const {cart, agragarCarrito,isInCart} = useContext(CartContext)
+    const { agragarCarrito,isInCart} = useContext(CartContext)
 
     const handleAgregar = () => { 
         const item = {

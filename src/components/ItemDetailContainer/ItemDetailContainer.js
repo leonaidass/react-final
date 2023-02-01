@@ -39,5 +39,5 @@ export const ItemDetailContainer = () => {
      
       
     </div>
-  );s
+  );
 };
