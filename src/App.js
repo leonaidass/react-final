@@ -8,12 +8,21 @@ import { Nosotros } from "./components/Nosotros/Nosotros";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { Contacto } from "./components/Contacto/Contacto";
 import { CartContext } from "./context/CartContext";
+import { useState } from "react";
+import { Cart } from "./components/Cart/Cart";
 
 function App() {
-  const nombreT ='leonardo'
-  const apellido='Esquivel'
+  const [cart, setCart] = useState([]);
+  console.log("carrito",cart);
+  const agragarCarrito= (item)=>{
+    setCart([...cart,item])
+  }
+  const isInCart = (id)=>{
+    return cart.some((elem)=>elem.id === id)
+  }
+ 
   return (
-    <CartContext.Provider value={{nombreT,apellido}}>
+    <CartContext.Provider value={{cart,agragarCarrito,isInCart}}>
     <BrowserRouter>
       <ResponsiveAppBar />
       <Container maxWidth="lg">
@@ -37,6 +46,10 @@ function App() {
            <Route
             path="/contacto"
             element={<Contacto/>}
+           />
+           <Route
+            path="/carrito"
+            element={<Cart/>}
            />
         </Routes>
       </Container>

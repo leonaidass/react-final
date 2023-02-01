@@ -7,7 +7,7 @@ export const Select = ({talles})=>{
     }
     return(
         <div>
-            <select onChange={chang}> {talles.map((elem)=><option value={elem.value}>{elem.talle}</option>)}</select>
+            <select onChange={chang}> {talles.map((elem)=><option key={elem.value} value={elem.value}>{elem.talle}</option>)}</select>
         </div>
     )
 }
