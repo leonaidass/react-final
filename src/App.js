@@ -9,11 +9,15 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { Contacto } from "./components/Contacto/Contacto";
 import { CardProvider} from "./context/CartContext";
 import { Cart } from "./components/Cart/Cart";
+import { LoginView } from "./components/LoginView/LoginView";
+import { LoginProvider } from "./context/LoginContext";
+
 
 function App() {
  
  
   return (
+    <LoginProvider>
     <CardProvider>
     <BrowserRouter>
       <ResponsiveAppBar />
@@ -43,10 +47,16 @@ function App() {
             path="/carrito"
             element={<Cart/>}
            />
+           <Route
+            path="/login"
+            element={<LoginView/>}
+           />
+
         </Routes>
       </Container>
     </BrowserRouter>
     </CardProvider>
+    </LoginProvider>
   );
 }
 
